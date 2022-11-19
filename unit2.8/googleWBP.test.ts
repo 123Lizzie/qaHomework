@@ -6,6 +6,8 @@ const google = new Google();
 test("do a search", async () => {
     await google.navigate();
     await google.search("Almond Joy");
+    let text = await google.getResults();
+    expect(text).toContain("Almond Joy");
     await fs.writeFile(`${__dirname}/google.png`, 
     await google.driver.takeScreenshot(), "base64", 
     (e) => {
