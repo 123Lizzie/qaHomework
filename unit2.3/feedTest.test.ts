@@ -1,17 +1,17 @@
+//These are importing what is needed for the following tests to work.
 import { Animal } from "./animal";
 import { getAnimal} from "./zoo";
-
+//These consts are used to make the tests more streamlined such as using alex instead of getAnimal("Alex").
 const alex: Animal = getAnimal("Alex");
 const marty: Animal = getAnimal("Marty");
 const melman: Animal = getAnimal("Melman");
 const gloria: Animal = getAnimal("Gloria");
-//Adding a comment
 const lionFood = ["meat"];
 const zebraFood = ["grass", "leaves", "shrubs", "bark"];
 const giraffeFood = ["leaves", "hay", "carrots"];
 const hippoFood = ["grass", "reeds", "shoots"];
 const badFood = ["shrimp", "potatoes", "pizza", "icecream"];
-
+//These tests make sure that each animal likes the proper food and doesn't like bad food.
 describe("feeding animals", () => {
     test ("Alex likes the food we expect", () => {
         lionFood.forEach((food) => {
