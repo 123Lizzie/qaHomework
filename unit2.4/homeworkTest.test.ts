@@ -72,7 +72,8 @@ describe("Employee Manager 1.2", () => {
             expect(await (await driver.findElement(errorCard)).getText()).toBe("The name field must be between 1 and 30 characters long.");
         });
         /*This test has the computer go through the steps of the previous test, then try to cancel out of the error message.
-        It fails when run, but I believe that's because you can't cancel out of the error message rather than an issue with the test itself.*/
+        It fails when run, but I believe that's because you can't cancel out of the error message rather than an issue with the test itself.
+        If I'm wrong and it is an issue with the test, I have no idea what the issue is.*/
         test("Lets you cancel out of an error message", async () => {
             await driver.findElement(bernice).click();
             await driver.wait(until.elementIsVisible(await driver.findElement(nameInput)));
