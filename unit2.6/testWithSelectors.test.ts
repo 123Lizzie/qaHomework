@@ -10,19 +10,20 @@ describe("Filling in the blanks", () => {
         await driver.quit();
     });
 
-    const hdrInput: By = By.
-    const mkeInput: By = By.
-    const oaiInput: By = By.
-    const nameInput: By = 
-    const clrBtn: By = 
-    const submitBtn: By =
-    const errorMsg: By = 
+    const hdrInput: By = By.xpath('//input[@name="hdrInput"]');
+    const mkeInput: By = By.xpath('//input[@name="mkeInput"]');
+    const oaiInput: By = By.xpath('//input[@name="oriInput"]');
+    const nameInput: By = By.xpath('//input[@name="namInput"]');
+    const clrBtn: By = By.xpath('//button[@id="clearBtn"]');
+    const submitBtn: By = By.xpath('//button[@id="saveBtn"]');
+    //I'm still having issues getting this const right.
+    const errorMsg: By = By.xpath('//p[alt="is"]');
 
-    test("Filling in the blanks for real", () => {
-        await driver.findElement(hdrInput).sendKeys("");
-        await driver.findElement(mkeInput).sendKeys("");
-        await driver.findElement(oaiInput).sendKeys("");
-        await driver.findElement(nameInput).sendKeys("");
+    test("Filling in the blanks for real", async () => {
+        await driver.findElement(hdrInput).sendKeys("Test Header");
+        await driver.findElement(mkeInput).sendKeys("Test");
+        await driver.findElement(oaiInput).sendKeys("123456789");
+        await driver.findElement(nameInput).sendKeys("Test Name");
         await driver.findElement(submitBtn).click();
         expect(errorMsg).toContain("Errors Received:");
         await driver.findElement(clrBtn).click();
